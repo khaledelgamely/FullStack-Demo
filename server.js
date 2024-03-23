@@ -3,6 +3,7 @@ import 'dotenv/config'
 import { corsOptions } from './config/corsOptions.js'
 import AuthRouter from './routes/auth/authRouter.js'
 import productRouter from './routes/products/productRouter.js'
+import RootRouter from './routes/root.js'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import userRouter from './routes/user/user.Router.js'
@@ -27,6 +28,7 @@ mongoose
 
 
 server.use(cors(corsOptions))
+server.use('/', RootRouter)
 server.use('/auth', AuthRouter)
 server.use('/user', userRouter)
 server.use('/product', productRouter)
